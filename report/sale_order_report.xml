@@ -1,0 +1,10 @@
+<odoo>
+<record id="sales.order_summary_report" model="ir.actions.report">
+    <field name="name">Order Summary Report</field>
+    <field name="model">sale.order</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="binding_model_id" ref="model_sale_order"/>
+    <field name="binding_type">report</field>
+    <field name="report_name">sales.report_order_summary_document</field>
+</record>
+</odoo>

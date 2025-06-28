@@ -1,0 +1,8 @@
+<odoo>
+
+    <menuitem id="menu_custom_kanban_orders"
+              name="Custom Kanban"
+              parent="sale.sale_order_menu"
+              action="action_sale_order_custom_kanban"
+              sequence="90"/>
+</odoo>

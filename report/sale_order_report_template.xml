@@ -1,0 +1,41 @@
+<odoo>
+<template id="report_order_summary_document">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+            <t t-foreach="docs" t-as="o">
+                <div class="page" style="padding: 30px; font-family: 'Helvetica Neue', sans-serif;">
+                    <h2 style="text-align:center; color: #003366; margin-bottom: 20px;">🧾 Sales Order Summary</h2>
+
+                    <div style="margin-bottom: 20px;">
+                        <p><strong style="color:#555">Customer:</strong> <span style="color:#000"><t t-esc="o.partner_id.name"/></span></p>
+                        <p><strong style="color:#555">Salesperson:</strong> <span style="color:#000"><t t-esc="o.user_id.name"/></span></p>
+                        <p><strong style="color:#555">Date:</strong> <span style="color:#000"><t t-esc="o.date_order"/></span></p>
+                        <p><strong style="color:#555">Total Amount:</strong> <span style="color:#000"><t t-esc="o.amount_total"/> $</span></p>
+                    </div>
+
+                    <table style="width:100%; border-collapse:collapse; border: 1px solid #ccc;">
+                        <thead style="background-color: #f8f8f8;">
+                            <tr>
+                                <th style="padding:10px; border: 1px solid #ccc; text-align:left;">🛒 Product</th>
+                                <th style="padding:10px; border: 1px solid #ccc; text-align:center;">📦 Quantity</th>
+                                <th style="padding:10px; border: 1px solid #ccc; text-align:right;">💰 Subtotal </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.order_line" t-as="line">
+                                <td style="padding:8px; border: 1px solid #eee;"><t t-esc="line.product_id.name"/></td>
+                                <td style="padding:8px; border: 1px solid #eee; text-align:center;"><t t-esc="line.product_uom_qty"/></td>
+                                <td style="padding:8px; border: 1px solid #eee; text-align:right;"><t t-esc="line.price_subtotal"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="margin-top: 30px; text-align:right;">
+                        <h3 style="color: #003366;">🔢 Total: <t t-esc="o.amount_total"/> $</h3>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+</odoo>

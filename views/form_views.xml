@@ -1,0 +1,46 @@
+<odoo>
+
+<record id="inherit_view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="total_products_qty"/>
+            </xpath>
+        </field>
+    </record>
+
+
+
+
+
+    <odoo>
+  <record id="view_order_form_inherit_custom_button" model="ir.ui.view">
+    <field name="name">sale.order.form.inherit.button.printpdf</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//button[@name='action_cancel']" position="after">
+        <button name="print_report" type="object" string="Print Summary PDF" class="btn btn-primary" />
+      </xpath>
+    </field>
+  </record>
+</odoo>
+
+
+
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
