@@ -3,7 +3,7 @@
     'version': '1.0',
     'depends': ['sale', 'base'],
     'author': "Gana",
-    'category': '',
+    'category': 'sales',
     'description': "",
     'data': [
         'views/form_views.xml',
